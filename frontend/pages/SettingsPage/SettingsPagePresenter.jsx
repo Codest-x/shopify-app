@@ -1,4 +1,4 @@
-import SettingsPageComponent from "./SettingsPageComponent.jsx";
-export default function SettingsPagePresenter(){
-    return <SettingsPageComponent  />;
+import SettingsPageComponent from './SettingsPageComponent.jsx';
+export default function SettingsPagePresenter() {
+  return <SettingsPageComponent />;
 }
