@@ -6,7 +6,7 @@ import {
   ThumbUpIcon,
   MarketIcon,
 } from '../../assets/icons/index';
-import FormModalPresenter from '../../components/FormModalComponent/FormModalPresenter';
+import FormSellerPresenter from '../../components/FormSellerModal/FormSellerPresenter';
 import React from 'react';
 const DescriptionThr1ft = ({icon}: {icon: React.ReactNode}) => {
   return (
@@ -40,7 +40,7 @@ export default function HomePageComponent({
 }) {
   return (
     <Page fullWidth>
-      <FormModalPresenter open={isOpen} onClose={handleCloseModal} />
+      <FormSellerPresenter open={isOpen} onClose={handleCloseModal} />
       <Banner
         status={pingResponse?.message ? 'success' : 'critical'}
         title="API Status"

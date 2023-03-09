@@ -1,6 +1,6 @@
 import {Modal, Text} from '@shopify/polaris';
 import React from 'react';
-export default function FormModalComponent({
+export default function FormSellerComponent({
   open,
   onClose,
 }: {
