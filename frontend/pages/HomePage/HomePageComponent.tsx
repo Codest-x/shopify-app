@@ -1,14 +1,14 @@
-import {Page, Button, Text, ButtonGroup} from '@shopify/polaris';
+import {Page, Button, Text, ButtonGroup, Banner} from '@shopify/polaris';
 import s from './HomePage.module.scss';
 import {
   EnergyIconPink,
   EnergyIconPurple,
   ThumbUpIcon,
   MarketIcon,
-} from '../../assets/icons/index.js';
-import FormModalPresenter from '../../components/FormModalComponent/FormModalPresenter.jsx';
-
-const DescriptionThr1ft = ({icon}) => {
+} from '../../assets/icons/index';
+import FormModalPresenter from '../../components/FormModalComponent/FormModalPresenter';
+import React from 'react';
+const DescriptionThr1ft = ({icon}: {icon: React.ReactNode}) => {
   return (
     <div className={s['textContainer']}>
       {icon}
@@ -27,10 +27,28 @@ const DescriptionThr1ft = ({icon}) => {
   );
 };
 
-export default function HomePageComponent({isOpen, handleCloseModal}) {
+export default function HomePageComponent({
+  isOpen,
+  handleCloseModal,
+  pingResponse,
+}: {
+  isOpen: boolean;
+  handleCloseModal: () => void;
+  pingResponse?: {
+    message: string;
+  };
+}) {
   return (
     <Page fullWidth>
       <FormModalPresenter open={isOpen} onClose={handleCloseModal} />
+      <Banner
+        status={pingResponse?.message ? 'success' : 'critical'}
+        title="API Status"
+        onDismiss={() => {}}>
+        {pingResponse?.message
+          ? 'The API is working fine'
+          : 'We have some problems with the API'}
+      </Banner>
       <div className={s['container']}>
         <Text fontWeight={'bold'} variant={'heading3xl'} as={'h1'}>
           Welcome To Thr1ft Marketplace

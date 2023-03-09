@@ -1,23 +1,14 @@
-import {useMemo, useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import {Provider} from '@shopify/app-bridge-react';
 import {Banner, Layout, Page} from '@shopify/polaris';
 
-/**
- * A component to configure App Bridge.
- * @desc A thin wrapper around AppBridgeProvider that provides the following capabilities:
- *
- * 1. Ensures that navigating inside the app updates the host URL.
- * 2. Configures the App Bridge Provider, which unlocks functionality provided by the host.
- *
- * See: https://shopify.dev/apps/tools/app-bridge/react-components
- */
-export function AppBridgeProvider({children}) {
+export function AppBridgeProvider({children}: {children: React.ReactNode}) {
   const location = useLocation();
   const navigate = useNavigate();
   const history = useMemo(
     () => ({
-      replace: path => {
+      replace: (path: string) => {
         navigate(path, {replace: true});
       },
     }),
@@ -34,12 +25,12 @@ export function AppBridgeProvider({children}) {
   // During the lifecycle of an app, these values should never be updated anyway.
   // Using state in this way is preferable to useMemo.
   // See: https://stackoverflow.com/questions/60482318/version-of-usememo-for-caching-a-value-that-will-never-change
-  const [appBridgeConfig] = useState(() => {
+  const [appBridgeConfig] = useState<any>(() => {
     const host =
       new URLSearchParams(location.search).get('host') ||
-      window.__SHOPIFY_DEV_HOST;
+      (window as any).__SHOPIFY_DEV_HOST;
 
-    window.__SHOPIFY_DEV_HOST = host;
+    (window as any).__SHOPIFY_DEV_HOST = host;
 
     return {
       host,
