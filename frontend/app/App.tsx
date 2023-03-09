@@ -1,7 +1,7 @@
 import {BrowserRouter} from 'react-router-dom';
 import {NavigationMenu} from '@shopify/app-bridge-react';
 import {AppBridgeProvider, QueryProvider, PolarisProvider} from '../providers';
-import MainRouter from '../routing/MainRouter.jsx';
+import MainRouter from '../routing/MainRouter';
 
 export default function App() {
   return (
@@ -13,11 +13,11 @@ export default function App() {
               navigationLinks={[
                 {
                   label: 'Home',
-                  url: '/',
+                  destination: '/',
                 },
                 {
                   label: 'Settings',
-                  url: '/settings',
+                  destination: '/settings',
                 },
               ]}
             />

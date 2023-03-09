@@ -1,5 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
-import {SettingsPagePresenter, HomePagePresenter} from '../pages/index.js';
+import {SettingsPagePresenter, HomePagePresenter} from '../pages';
 
 export default function MainRouter() {
   return (
