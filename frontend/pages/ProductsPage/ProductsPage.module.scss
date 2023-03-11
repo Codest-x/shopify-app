@@ -1,0 +1,41 @@
+.emptyCard {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 20px;
+
+  .link {
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #babfc3;
+    font-weight: 500;
+    padding: 8.5px 12px;
+    border-radius: 4px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px 10px 0;
+  }
+}
+
+.productName {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  text-transform: capitalize;
+}

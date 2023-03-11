@@ -16,8 +16,12 @@ export default function App() {
                   destination: '/',
                 },
                 {
+                  label: 'Products',
+                  destination: '/products',
+                },
+                {
                   label: 'Settings',
-                  destination: '/settings',
+                  destination: '/settings/account',
                 },
               ]}
             />
