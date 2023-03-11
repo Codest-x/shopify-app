@@ -6,7 +6,8 @@ import {
   ThumbUpIcon,
   MarketIcon,
 } from '../../assets/icons/index';
-import FormSellerPresenter from '../../components/FormSellerModal/FormSellerPresenter';
+import {FormSellerPresenter} from '../../components';
+import Thr1ftLogo from '../../assets/logo-black.svg';
 import React from 'react';
 const DescriptionThr1ft = ({icon}: {icon: React.ReactNode}) => {
   return (
@@ -51,7 +52,7 @@ export default function HomePageComponent({
       </Banner>
       <div className={s['container']}>
         <Text fontWeight={'bold'} variant={'heading3xl'} as={'h1'}>
-          Welcome To Thr1ft Marketplace
+          Welcome To <img src={Thr1ftLogo} alt={'thr1ft_logo'}/> Marketplace
         </Text>
         <div className={s['information']}>
           <div className={s['left']}>

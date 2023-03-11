@@ -28,21 +28,32 @@ app.post(
   shopify.processWebhooks({ webhookHandlers: GDPRWebhookHandlers })
 );
 
+app.use("/api/*", shopify.validateAuthenticatedSession());
+app.use(express.json());
+
 app.get("/api/ping", (_req, res) => {
   const forceError = false;
   if (!forceError) {
     res.send(
-      JSON.stringify({
-        message: "pong",
-      })
+        JSON.stringify({
+          message: "pong",
+        })
     );
   } else {
     res.status(500).send("Internal Server Error");
   }
 });
 
-app.use("/api/*", shopify.validateAuthenticatedSession());
-app.use(express.json());
+app.get('/api/products', async (_req, res) => {
+  try {
+    const products = await shopify.api.rest.Product.all({
+      session: res.locals.shopify.session,
+    })
+    res.send(products)
+  } catch(err) {
+    res.send({ error: err.message })
+  }
+});
 
 app.use(serveStatic(STATIC_PATH, { index: false }));
 

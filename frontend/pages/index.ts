@@ -1,4 +1,5 @@
-import HomePagePresenter from './HomePage/HomePagePresenter.tsx';
-import SettingsPagePresenter from './SettingsPage/SettingsPagePresenter.js';
+import HomePagePresenter from './HomePage/HomePagePresenter';
+import SettingsPagePresenter from './SettingsPage/SettingsPagePresenter';
+import ProductsPagePresenter from './ProductsPage/ProductsPagePresenter';
 
-export {HomePagePresenter, SettingsPagePresenter};
+export {HomePagePresenter, SettingsPagePresenter, ProductsPagePresenter};
