@@ -1,7 +1,7 @@
 import {Page, Tabs} from '@shopify/polaris';
 import React from 'react';
 import {TabDescriptor} from '@shopify/polaris/build/ts/latest/src/components/Tabs/types';
-import {AccountTab, FAQTab} from '../../components/SettingsPageTabs';
+import {AccountTab, FAQTab, TermsTab} from '../../components/SettingsPageTabs';
 import {DeleteAccountModalPresenter} from '../../components';
 
 export default function SettingsPageComponent({
@@ -26,6 +26,11 @@ export default function SettingsPageComponent({
       content: 'FAQ',
       accessibilityLabel: 'FAQ',
     },
+    {
+      id: 'terms',
+      content: 'Terms',
+      accessibilityLabel: 'Terms',
+    },
   ];
 
   const TabContent = () => {
@@ -34,6 +39,8 @@ export default function SettingsPageComponent({
         return <AccountTab handleAction={handleOpenModal} />;
       case 1:
         return <FAQTab />;
+      case 2:
+        return <TermsTab />;
       default:
         return null;
     }

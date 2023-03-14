@@ -2,7 +2,7 @@ import SettingsPageComponent from './SettingsPageComponent';
 import React from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 
-const TABS = ['account', 'faq'];
+const TABS = ['account', 'faq', 'terms'];
 
 export default function SettingsPagePresenter() {
   const {tab} = useParams<{tab: string}>();
