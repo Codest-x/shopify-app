@@ -3,10 +3,11 @@ import {Text, TextField, TextFieldProps, Tooltip} from '@shopify/polaris';
 import React from 'react';
 
 export default function Input(
-  props: TextFieldProps & {
+  props: Omit<TextFieldProps, 'autoComplete'> & {
     tooltip?: string | React.ReactNode;
     action?: React.ReactNode;
     fullWidth?: boolean;
+    autoComplete?: 'on' | 'off';
   },
 ) {
   return (
@@ -25,7 +26,11 @@ export default function Input(
           </Tooltip>
         )}
       </div>
-      <TextField {...props} label={''} />
+      <TextField
+        autoComplete={props.autoComplete || 'off'}
+        {...props}
+        label={''}
+      />
       {props.action}
     </div>
   );
